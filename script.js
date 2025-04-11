@@ -5,12 +5,14 @@ let plusBut = document.querySelector('.plusBut')
 let minusBut = document.querySelector('.minusBut')
 let multiBut = document.querySelector('.multiBut')
 let divideBut = document.querySelector('.divideBut')
+let equalBut = document.querySelector('.equalBut')
+let clearBut = document.querySelector('.clearBut')
 
 let displayNum = [];
 
 let num1 = null;
 let num2 = null;
-let operateButton = 0;
+let operateButton;
 let continousCalc = false;
 
 function add(a,b){
@@ -58,6 +60,7 @@ function getOperateButton() {
 
 function plusClicked () {
     plusBut.addEventListener('click', (e) =>{
+        operateButton = e.target.innerText
         if(num1 === null){
             num1 = parseInt(display.innerText)
             display.innerText = '0'
@@ -77,15 +80,16 @@ function plusClicked () {
 
 function minusClicked () {
     minusBut.addEventListener('click', (e) =>{
+        getOperateButton()
         if(num1 === null){
             num1 = parseInt(display.innerText)
-            display.innerText = ''
+            display.innerText = '0'
             console.log(num1)
         } else if(num1 >= 0) {
                 num2 = parseInt(display.innerText)
                 console.log(num2)
                 display.innerText = operate("-",num1,num2)
-                num1 = operate("+",num1,num2)
+                num1 = operate("-",num1,num2)
                 num2 = null
                 continousCalc = true;
             
@@ -95,15 +99,16 @@ function minusClicked () {
 
 function multiplyClicked () {
     multiBut.addEventListener('click', (e) =>{
+        getOperateButton()
         if(num1 === null){
             num1 = parseInt(display.innerText)
-            display.innerText = ''
+            display.innerText = '0'
             console.log(num1)
         } else if(num1 >= 0) {
                 num2 = parseInt(display.innerText)
                 console.log(num2)
                 display.innerText = operate("*",num1,num2)
-                num1 = operate("+",num1,num2)
+                num1 = operate("*",num1,num2)
                 num2 = null
                 continousCalc = true;
             
@@ -113,19 +118,45 @@ function multiplyClicked () {
 
 function divideClicked () {
     divideBut.addEventListener('click', (e) =>{
+        getOperateButton()
         if(num1 === null){
             num1 = parseInt(display.innerText)
-            display.innerText = ''
+            display.innerText = '0'
             console.log(num1)
         } else if(num1 >= 0) {
                 num2 = parseInt(display.innerText)
                 console.log(num2)
                 display.innerText = operate("/",num1,num2)
-                num1 = operate("+",num1,num2)
+                num1 = operate("/",num1,num2)
                 num2 = null
                 continousCalc = true;
             
         }
+    })
+}
+
+
+function clearClicked() {
+    clearBut.addEventListener('click', () => {
+        display.innerText = '0'
+        num1 = null;
+        num2 = null;
+    })
+}
+
+
+function equalClicked() {
+    equalBut.addEventListener('click', () => {
+               if(parseInt(display.innerText) > 0) {
+                display.innerText = operate(operateButton,num1,parseInt(display.innerText))
+                console.log(operate(operateButton,num1,parseInt(display.innerText)))
+                num1 = null;
+                num2 = null;
+                continousCalc = true;
+               }
+            
+        
+        
     })
 }
 
@@ -148,7 +179,7 @@ function updateDisplay() {
                 continousCalc = false;
             }
 
-            
+
             if(parseInt(display.innerText) === 0){
                 display.innerText = '';
             }
@@ -175,5 +206,7 @@ function main(){
     minusClicked()
     multiplyClicked()
     divideClicked()
+    clearClicked()
+    equalClicked()
 }
 main()
