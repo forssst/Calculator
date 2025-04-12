@@ -50,9 +50,8 @@ function operate(operator,num1,num2){
 
 function getOperateButton() {
     opButs.forEach(opBut => {
-        opBut.addEventListener('click', (e) => {
-          operateButton = e.target.innerText
-          console.log(operateButton)
+       opBut.addEventListener('click', (e) => {
+        //   operateButton = e.target.innerText 
         })
     })
 }
@@ -60,57 +59,65 @@ function getOperateButton() {
 
 function plusClicked () {
     plusBut.addEventListener('click', (e) =>{
-        operateButton = e.target.innerText
         if(num1 === null){
             num1 = parseInt(display.innerText)
             display.innerText = '0'
             console.log(num1)
+            console.log(` chuj ${operateButton}`)
+            operateButton = e.target.innerText
         } else if(num1 >= 0) {
                 num2 = parseInt(display.innerText)
                 console.log(num2)
-                display.innerText = operate("+",num1,num2)
-                num1 = operate("+",num1,num2)
+                display.innerText = operate(operateButton,num1,num2)
+                num1 = operate(operateButton,num1,num2)
                 num2 = null
                 continousCalc = true;
-                
-            
+                operateButton = e.target.innerText
+  
         }
+       
     })
 }
 
 function minusClicked () {
     minusBut.addEventListener('click', (e) =>{
-        getOperateButton()
         if(num1 === null){
             num1 = parseInt(display.innerText)
             display.innerText = '0'
             console.log(num1)
+            operateButton = e.target.innerText
         } else if(num1 >= 0) {
                 num2 = parseInt(display.innerText)
                 console.log(num2)
-                display.innerText = operate("-",num1,num2)
-                num1 = operate("-",num1,num2)
+                console.log(` chuj ${operateButton}`)
+                display.innerText = operate(operateButton,num1,num2)
+                num1 = operate(operateButton,num1,num2)
                 num2 = null
                 continousCalc = true;
+                operateButton = e.target.innerText
+                
             
         }
+        
     })
 }
 
 function multiplyClicked () {
     multiBut.addEventListener('click', (e) =>{
-        getOperateButton()
         if(num1 === null){
             num1 = parseInt(display.innerText)
             display.innerText = '0'
             console.log(num1)
+            operateButton = e.target.innerText
         } else if(num1 >= 0) {
                 num2 = parseInt(display.innerText)
                 console.log(num2)
-                display.innerText = operate("*",num1,num2)
-                num1 = operate("*",num1,num2)
+                console.log(` chuj ${operateButton}`)
+                display.innerText = operate(operateButton,num1,num2)
+                num1 = operate(operateButton,num1,num2)
                 num2 = null
                 continousCalc = true;
+                operateButton = e.target.innerText
             
         }
     })
@@ -118,18 +125,20 @@ function multiplyClicked () {
 
 function divideClicked () {
     divideBut.addEventListener('click', (e) =>{
-        getOperateButton()
         if(num1 === null){
             num1 = parseInt(display.innerText)
             display.innerText = '0'
             console.log(num1)
+            operateButton = e.target.innerText
         } else if(num1 >= 0) {
                 num2 = parseInt(display.innerText)
                 console.log(num2)
-                display.innerText = operate("/",num1,num2)
-                num1 = operate("/",num1,num2)
+                console.log(` chuj ${operateButton}`)
+                display.innerText = operate(operateButton,num1,num2)
+                num1 = operate(operateButton,num1,num2)
                 num2 = null
                 continousCalc = true;
+                operateButton = e.target.innerText
             
         }
     })
@@ -148,6 +157,15 @@ function clearClicked() {
 function equalClicked() {
     equalBut.addEventListener('click', () => {
                if(parseInt(display.innerText) > 0) {
+                display.innerText = operate(operateButton,num1,parseInt(display.innerText))
+                console.log(operate(operateButton,num1,parseInt(display.innerText)))
+                num1 = null;
+                num2 = null;
+                continousCalc = true;
+               }
+
+               if(num1 === null) {
+                num1 = 0;
                 display.innerText = operate(operateButton,num1,parseInt(display.innerText))
                 console.log(operate(operateButton,num1,parseInt(display.innerText)))
                 num1 = null;
