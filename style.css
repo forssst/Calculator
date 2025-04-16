@@ -7,19 +7,33 @@ html {
 
   .container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+  }
+
+  .header {
+    flex: 1 1 100%;
   }
 
   .calc{
     display: flex;
     border: 1px solid blue;
     flex-wrap: wrap;
+   
+    width: 600px;
+    height: 800px;
   }
 
   .calcDisplay{
+    display: flex;
     border: 1px solid red;
     margin: 15px;
+    height: 25%;
     flex: 1 1 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+   
   }
 
   .calcNumbers {
@@ -27,23 +41,44 @@ html {
     border: 1px solid green;
     margin: 15px;
     padding: 10px;
-    width: 300px;
-    height: 300px;
+    height: 60%;
+    width: 60%;
+   justify-content: center;
     align-items: flex-start;
     gap: 10px;
     flex-wrap: wrap;
   }
 
   .numBut {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 107px;
+
+  }
+
+  .opBut {
+    width: 60px;
+    height: 60px;
 
   }
 
   .calcOperators {
+    display: flex;
     border: 1px solid yellow;
     margin: 15px;
-    width: 150px;
-    height: 300px;
+    width: 29%;
+    height: 60%;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .clearBut {
+    width: 60px;
+    height: 100px;
+  }
+
+  .equalBut {
+    width: 60px;
+    height: 100px;
   }
 
