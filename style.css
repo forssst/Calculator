@@ -5,6 +5,14 @@ html {
     box-sizing: inherit;
   }
 
+  @font-face{
+ font-family:'digital-clock-font';
+ src: url('calcfont/digital-7.ttf');
+}
+
+  body{
+    font-family: "Roboto Mono", monospace;
+  }
   .container{
     display: flex;
     flex-direction: column;
@@ -18,27 +26,44 @@ html {
 
   .calc{
     display: flex;
-    border: 1px solid blue;
+    border: 4px solid rgb(40, 40, 40) ;
     flex-wrap: wrap;
-   
-    width: 600px;
+    background-color: rgb(59, 59, 59);
+    width: 650px;
     height: 800px;
+    border-radius: 20px;
+  }
+
+  .calcBottom{
+    display: flex;
+    background-color: rgb(69, 67, 67);
+    border-radius: 20px;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-family: "Roboto Mono", monospace;
   }
 
   .calcDisplay{
     display: flex;
-    border: 1px solid red;
+    border: 1px solid rgb(40, 40, 40);
+    border-radius: 10px;
     margin: 15px;
     height: 25%;
     flex: 1 1 100%;
     justify-content: flex-end;
-    align-items: flex-end;
+   flex-wrap: wrap;
+   align-content: center;
+    background-color: rgb(213, 241, 202);
+    font-family:'digital-clock-font';
+    font-size: 140px;
+    padding-right: 10px;
    
   }
 
   .calcNumbers {
     display: flex;
-    border: 1px solid green;
+    border: 1px solid none;
     margin: 15px;
     padding: 10px;
     height: 60%;
@@ -47,38 +72,58 @@ html {
     align-items: flex-start;
     gap: 10px;
     flex-wrap: wrap;
+    
   }
 
   .numBut {
     width: 100px;
     height: 107px;
+    border-radius: 20px;
+    background-color: rgb(172, 168, 168);
+    font-family: "Roboto Mono", monospace;
+    font-size: 30px;
 
   }
 
   .opBut {
-    width: 60px;
-    height: 60px;
+    width: 150px;
+    height: 65px;
+     border-radius: 20px;
+    background-color: rgb(172, 168, 168);
+       font-family: "Roboto Mono", monospace;
+    font-size: 30px;
 
   }
 
   .calcOperators {
     display: flex;
-    border: 1px solid yellow;
+    flex-direction: column;
+    border: 1px solid none;
     margin: 15px;
-    width: 29%;
-    height: 60%;
-    align-items: flex-start;
+    width: 30%;
+    height: 90%;
+    align-items: center;
+    justify-content: space-evenly;
     gap: 10px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .clearBut {
-    width: 60px;
-    height: 100px;
+  
+       border-radius: 20px;
+    background-color: rgb(110, 161, 237);
+    font-family: "Roboto Mono", monospace;
+    font-size: 30px;
   }
 
+
   .equalBut {
-    width: 60px;
-    height: 100px;
+     width: 100px;
+    height: 107px;
+    border-radius: 20px;
+    background-color: rgb(172, 168, 168);
+    background-color: rgb(110, 161, 237);
+    font-family: "Roboto Mono", monospace;
+    font-size: 30px;
   }
 
